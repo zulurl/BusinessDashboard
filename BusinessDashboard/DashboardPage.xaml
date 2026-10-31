@@ -1,0 +1,76 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:charts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             x:Class="BusinessDashboard.DashboardPage"
+             Title="Painel de Controlo">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <!-- Título da Divisão dos Ganhos Diários -->
+            <Label Text="Divisão dos Ganhos Diários" FontSize="18" FontAttributes="Bold" />
+
+            <!-- Placeholder para o Gráfico de Pizza -->
+            <charts:ChartView x:Name="PieChartView"
+                             HeightRequest="300"
+                             WidthRequest="300"
+                             HorizontalOptions="Center"/>
+
+            <!-- Título Principal -->
+            <Label Text="Painel de Negócios Diário" 
+                   FontSize="24" 
+                   FontAttributes="Bold" />
+
+            <!-- Seção de Entrada -->
+            <StackLayout>
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Total Caixa:" VerticalOptions="Center" />
+                    <Entry x:Name="CashierTotalInput" WidthRequest="150" Keyboard="Numeric" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Gorjetas:" VerticalOptions="Center" />
+                    <Entry x:Name="TipsInput" WidthRequest="150" Keyboard="Numeric" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Despesas Diárias:" VerticalOptions="Center" />
+                    <Entry x:Name="DailyExpensesInput" WidthRequest="150" Keyboard="Numeric" />
+                </HorizontalStackLayout>
+            </StackLayout>
+
+            <!-- Botão de Submissão -->
+            <Button Text="Submeter" Clicked="OnSubmitClick" HorizontalOptions="Start" />
+
+            <!-- Seção de Resultados -->
+            <VerticalStackLayout Margin="0,20,0,0">
+                <Label Text="Resultados:" FontSize="18" FontAttributes="Bold" />
+
+                <!-- Ganhos Líquidos -->
+                <HorizontalStackLayout>
+                    <Label Text="Ganhos Líquidos:" />
+                    <Label x:Name="NetEarningsLabel" FontAttributes="Bold" />
+                </HorizontalStackLayout>
+
+                <!-- Progresso até o Equilíbrio Financeiro -->
+                <HorizontalStackLayout>
+                    <Label Text="Progresso até o Equilíbrio:" />
+                    <Label x:Name="BreakevenProgressLabel" FontAttributes="Bold" />
+                </HorizontalStackLayout>
+
+                <!-- Meta Diária -->
+                <HorizontalStackLayout>
+                    <Label Text="Meta Diária:" />
+                    <Label x:Name="DailyTargetLabel" FontAttributes="Bold" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- Botão para ver os dados mensais -->
+            <Button Text="Ver Dados Mensais" Clicked="OnViewMonthlyDataClicked" Margin="10" />
+
+            <!-- Botão para ver outros dados -->
+            <Button Text="Ver Dados" Clicked="OnViewDataClicked" Margin="10" />
+
+            <Label Text="" Margin="150"></Label>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

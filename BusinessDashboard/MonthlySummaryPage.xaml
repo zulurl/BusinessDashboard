@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:charts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             x:Class="BusinessDashboard.MonthlySummaryPage"
+             Title="Resumos Mensais">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <!-- Título -->
+            <Label Text="Progresso até o Ponto de Equilíbrio" 
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Start" />
+
+            <!-- Picker de Mês -->
+            <Picker x:Name="MonthPicker"
+                    Title="Selecione o Mês"
+                    SelectedIndexChanged="OnMonthSelected"
+                    HorizontalOptions="FillAndExpand" />
+
+            <!-- Gráfico de Pizza -->
+            <charts:ChartView x:Name="PieChartView"
+                              HeightRequest="300"
+                              HorizontalOptions="FillAndExpand" />
+
+            <!-- Botão opcional de atualizar -->
+            <Button Text="Atualizar Dados" 
+                    Clicked="OnUpdateDataClicked" 
+                    HorizontalOptions="Center" 
+                    Margin="10" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
